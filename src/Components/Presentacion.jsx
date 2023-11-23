@@ -19,7 +19,7 @@ export const slideInBlurredLeft = keyframes`
 `;
 
 const FirstSection = styled.div`
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +27,6 @@ const FirstSection = styled.div`
   padding: 9rem 10rem;
   margin: 0 auto;
   @media (max-width: 1100px) {
-
     flex-direction: column-reverse;
     justify-content: center;
     padding: 3rem 6rem;
@@ -48,8 +47,10 @@ const SummaryMeContainer = styled.div`
   }
   animation: ${slideInBlurredLeft} 1s ease-in-out;
   @media (max-width: 1100px) {
-
     padding: 0;
+  }
+  @media (max-width: 500px) {
+    animation: ${slideInBlurredLeft} 0s ease-in-out;
   }
 `;
 
@@ -59,7 +60,6 @@ const PhotoDiv = styled.div`
   height: 320px;
   display: flex;
   @media (max-width: 1100px) {
-
     max-width: 200px;
     max-height: 250px;
   }
@@ -85,7 +85,6 @@ const Greeting = styled.p`
   color: #0e1425;
   ${typography.head.head2}
   @media (max-width: 1100px) {
-
     ${typography.head.head4}
   }
   @media (max-width: 500px) {
@@ -97,7 +96,6 @@ const SummaryMe = styled.p`
   color: #0e1425;
   ${typography.head.head5}
   @media (max-width: 1100px) {
-
     ${typography.head.head5}
   }
   @media (max-width: 500px) {

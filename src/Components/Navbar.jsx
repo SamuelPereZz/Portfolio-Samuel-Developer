@@ -1,11 +1,11 @@
-import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../Styles";
 import { Button1 } from "./Button";
 import { FaUserAstronaut, FaBars } from "react-icons/fa6";
 import { MdCoPresent } from "react-icons/md";
 import { LuMessagesSquare } from "react-icons/lu";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Wrapper = styled.nav`
   margin: 0;
@@ -71,13 +71,19 @@ const HamburgerButton = styled.button`
     }
   }
   :hover {
-      background-color: #8a8fa344;
-      border-radius: 6px;
-    }
+    background-color: #8a8fa344;
+    border-radius: 6px;
+  }
 `;
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    setIsOpen(false);
+    navigate(path);
+  };
 
   return (
     <Wrapper isOpen={isOpen}>
@@ -86,8 +92,11 @@ function Navbar() {
       </HamburgerButton>
       <ul>
         <li>
-          <NavLink to={"/about-me"}>
-            <Button1 style={{ width: 129 }}>
+          <NavLink
+            to={"/about-me"}
+            onClick={() => handleNavigation("/about-me")}
+          >
+            <Button1 style={{ width: 140 }}>
               {" "}
               <FaUserAstronaut />
               About
@@ -95,7 +104,10 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to={"/portafolio"}>
+          <NavLink
+            to={"/portafolio"}
+            onClick={() => handleNavigation("/portafolio")}
+          >
             <Button1 style={{ width: 140 }}>
               {" "}
               <MdCoPresent style={{ color: "#bfbb81" }} />
@@ -104,7 +116,10 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to={"/Contact-me"}>
+          <NavLink
+            to={"/Contact-me"}
+            onClick={() => handleNavigation("/Contact-me")}
+          >
             <Button1 style={{ width: 140 }}>
               {" "}
               <LuMessagesSquare style={{ color: "#4d9057" }} />

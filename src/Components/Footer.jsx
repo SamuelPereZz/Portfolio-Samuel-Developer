@@ -13,9 +13,10 @@ const Container = styled.div`
   display: flex;
   gap: 60px;
   align-items: center;
-  padding: 20px;
+  padding: 20px 15rem;
   justify-content: space-between;
   @media (max-width: 900px) {
+    padding: 20px 1rem;
     flex-direction: column-reverse;
     gap: 15px;
     justify-items: center;
@@ -29,7 +30,7 @@ const SocialContain = styled.div`
   gap: 30px;
   font-style: italic;
   @media (max-width: 900px) {
-  flex-direction: column;
+    flex-direction: column;
     gap: 15px;
     justify-items: center;
     align-items: center;
@@ -66,14 +67,14 @@ function Footer() {
       </SocialContain>
       <SocialContain>
         <p>To see more of my work, visit my socials:</p>
-        <SocialIcons style={{flexDirection: "row"}}>
+        <SocialIcons style={{ flexDirection: "row" }}>
           <FaLinkedin style={{ fontSize: "30px" }} />{" "}
           <FaSquareGithub style={{ fontSize: "30px" }} />{" "}
           <ImMail4 style={{ fontSize: "30px" }} />
         </SocialIcons>
         <div>
-            <p>fernando.samuelperez01@gmail.com</p>
-          </div>
+          <p>fernando.samuelperez01@gmail.com</p>
+        </div>
       </SocialContain>
       <SocialContain>
         <p>Source code:</p>

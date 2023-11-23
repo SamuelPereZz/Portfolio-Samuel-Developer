@@ -14,46 +14,9 @@ import vuejs from "../assets/Skills/vuejs.svg";
 import bootstrap from "../assets/Skills/bootstrap.svg";
 import moremore from "../assets/Skills/more.svg";
 import { colors, typography } from "../Styles";
-import { useState, useEffect } from "react";
-import { keyframes } from "@emotion/react";
-import { useInView } from "react-intersection-observer";
+import { useState } from "react";
+import { Button1 } from "./Button";
 
-const bounceInBck = keyframes`
-    0% {
-    transform: scale(0);
-    animation-timing-function: ease-in;
-    opacity: 0;
-  }
-  38% {
-    transform: scale(1);
-    animation-timing-function: ease-out;
-    opacity: 1;
-  }
-  55% {
-    transform: scale(0.7);
-    animation-timing-function: ease-in;
-  }
-  72% {
-    transform: scale(1);
-    animation-timing-function: ease-out;
-  }
-  81% {
-    transform: scale(0.84);
-    animation-timing-function: ease-in;
-  }
-  89% {
-    transform: scale(1);
-    animation-timing-function: ease-out;
-  }
-  95% {
-    transform: scale(0.95);
-    animation-timing-function: ease-in;
-  }
-  100% {
-    transform: scale(1);
-    animation-timing-function: ease-out;
-  }
-`;
 const SectionThree = styled.div`
   display: flex;
   flex-direction: column;
@@ -62,7 +25,6 @@ const SectionThree = styled.div`
   gap: 2rem;
   padding: 48px 65px;
   margin: 0 auto;
-
 `;
 
 const SkillsContainer = styled.div`
@@ -77,12 +39,11 @@ const SkillsContainer = styled.div`
 `;
 
 const CardSkill = styled.div`
-  animation: ${({ isVisible }) => (isVisible ? bounceInBck : "none")} 2s linear;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 250px;
-  height: 200px;
+  height: 240px;
   background-color: white;
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
@@ -92,21 +53,10 @@ const CardSkill = styled.div`
   cursor: pointer;
   padding: 1rem 0;
   filter: drop-shadow(4px 4px 8px #364153a1);
-  
+
   &.hovered {
-    padding: 0 1rem;
     padding-bottom: 40px;
-    height: 240px;
-  }
-  span {
-    text-transform: lowercase;
-    color: #3d7ca1;
-    :hover {
-      color: #8a8fa3;
-      @media (max-width: 900px) {
-        ${typography.overline.overline2}
-      }
-    }
+    height: 255px;
   }
   @media (max-width: 900px) {
     justify-content: space-around;
@@ -138,151 +88,170 @@ const InfoText = styled.p`
   text-align: center;
   text-shadow: 5px;
   ${typography.text.body2}
-  @media (max-width: 900px) {
+  padding: 0 1rem;
+  @media (max-width: 1100px) {
+    ${typography.text.body2}
+  }
+  @media (max-width: 500px) {
     ${typography.overline.overline2}
   }
 `;
 
 function TechnicalSkills() {
-  const [isHovered, setIsHovered] = useState(false);
-  const [ref, inView] = useInView({
-    triggerOnce: true,
+  const [showFrameworks, setShowFrameworks] = useState(false);
+  const [cardStates, setCardStates] = useState({
+    html: false,
+    bootstrap: false,
+    react: false,
+    rails: false,
+    sql: false,
+    git: false,
+    vuejs: false,
+    more: false,
   });
 
-  useEffect(() => {
-    const handleHover = () => {
-      setIsHovered(!isHovered);
+  const handleButtonClick = () => {
+    setShowFrameworks(!showFrameworks);
+
+    setCardStates({
+      html: false,
+      bootstrap: false,
+      react: false,
+      rails: false,
+      sql: false,
+      git: false,
+      vuejs: false,
+      more: false,
+    });
+  };
+
+  const handleCardClick = (cardName) => {
+    setCardStates((prevStates) => ({
+      ...prevStates,
+      [cardName]: !prevStates[cardName],
+    }));
+  };
+
+  const renderCardContent = (cardName) => {
+    const contentMap = {
+      html: {
+        title: "HTML",
+        description: cardStates.html
+          ? "I have two years of experience using HTML and CSS together to create visually appealing and interactive web pages and applications."
+          : showFrameworks
+          ? "I have two years of experience using HTML and CSS together to create visually appealing and interactive web pages and applications."
+          : "",
+        image: html,
+      },
+      bootstrap: {
+        title: cardStates.bootstrap
+          ? "Bootstrap"
+          : showFrameworks
+          ? "Bootstrap"
+          : "CSS",
+        description: cardStates.bootstrap
+          ? "I use Bootstrap to ensure consistent and polished designs in my projects."
+          : showFrameworks
+          ? "I use Bootstrap to ensure consistent and polished designs in my projects."
+          : "",
+        image: cardStates.bootstrap
+          ? bootstrap
+          : showFrameworks
+          ? bootstrap
+          : css,
+      },
+      react: {
+        title: cardStates.react
+          ? "React"
+          : showFrameworks
+          ? "React"
+          : "JavaScript",
+        description: cardStates.react
+          ? "I have completed more than six projects in React, incorporating various libraries to enhance functionality and user experience."
+          : showFrameworks
+          ? "I have completed more than six projects in React, incorporating various libraries to enhance functionality and user experience."
+          : "",
+        image: cardStates.react ? react : showFrameworks ? react : js,
+      },
+      rails: {
+        title: cardStates.rails
+          ? "Ruby on Rails"
+          : showFrameworks
+          ? "Ruby on Rails"
+          : "Ruby",
+        description: cardStates.rails
+          ? "With three projects and implementing a variety of gems, I have experience in the backend branch."
+          : showFrameworks
+          ? "With three projects and implementing a variety of gems, I have experience in the backend branch."
+          : "",
+        image: cardStates.rails ? rails : showFrameworks ? rails : ruby,
+      },
+      sql: {
+        title: cardStates.sql ? "SQL" : showFrameworks ? "SQL" : "Postgresql",
+        description: cardStates.sql
+          ? "Experience in database creation and management."
+          : showFrameworks
+          ? "Experience in database creation and management."
+          : "",
+        image: cardStates.sql ? sql : showFrameworks ? sql : postgresql,
+      },
+      git: {
+        title: cardStates.git ? "Github" : showFrameworks ? "Github" : "Git",
+        description: cardStates.git
+          ? "Using git in terminal I can easily have a good handle on work reflected in my Github profile."
+          : showFrameworks
+          ? "Using git in terminal I can easily have a good handle on work reflected in my Github profile."
+          : "",
+        image: cardStates.git ? github : showFrameworks ? github : git,
+      },
+      vuejs: {
+        title: cardStates.vuejs
+          ? "Vuejs"
+          : showFrameworks
+          ? "Vuejs"
+          : "Typescript",
+        description: cardStates.vuejs
+          ? "With three months of learning I can trust that I will continue good academic and professional growth."
+          : showFrameworks
+          ? "With three months of learning I can trust that I will continue good academic and professional growth."
+          : "",
+        image: cardStates.vuejs ? vuejs : showFrameworks ? vuejs : typescript,
+      },
+      more: {
+        title: "...",
+        description: cardStates.more
+          ? "I am continuously exploring and learning new technologies. Stay tuned for more updates!"
+          : showFrameworks
+          ? "I am continuously exploring and learning new technologies. Stay tuned for more updates!"
+          : "",
+        image: moremore,
+      },
     };
 
-    const cardsContainer = document.getElementById("cards-container");
-    cardsContainer.addEventListener("mouseenter", handleHover);
-    cardsContainer.addEventListener("mouseleave", handleHover);
-
-    return () => {
-      cardsContainer.removeEventListener("mouseenter", handleHover);
-      cardsContainer.removeEventListener("mouseleave", handleHover);
-    };
-  }, [isHovered]);
+    const { title, description, image } = contentMap[cardName];
+    return { title, description, image };
+  };
 
   return (
     <SectionThree>
-      <h2>
-        {isHovered ? "Frameworks and Libraries" : "Programming Languages"}
-      </h2>
+      <Button1 onClick={handleButtonClick}>
+        {showFrameworks
+          ? "See Programming languages.."
+          : "See Frameworks and Libraries..."}
+      </Button1>
+
       <SkillsContainer id="cards-container">
-        <CardSkill
-          className={isHovered ? "hovered" : ""}
-          ref={ref}
-          isVisible={inView}
-        >
-          <ImgSkill src={html} alt="Logo" />
-          <TitleSkill>HTML</TitleSkill>
-          <InfoText>
-            {isHovered
-              ? "Two years using html and css together to create web pages and applications."
-              : ""}
-          </InfoText>
-          <span>{isHovered ? "read more.." : ""}</span>
-        </CardSkill>
-
-        <CardSkill
-          className={isHovered ? "hovered" : ""}
-          ref={ref}
-          isVisible={inView}
-        >
-          <ImgSkill src={isHovered ? bootstrap : css} alt="Logo" />
-          <TitleSkill>{isHovered ? "Bootstrap" : "CSS"}</TitleSkill>
-          <InfoText>
-            {isHovered
-              ? "Using Bootstrap to guarantee better views and leaving a mark on each visual work.."
-              : ""}
-          </InfoText>
-          <span>{isHovered ? "read more.." : ""}</span>
-        </CardSkill>
-
-        <CardSkill
-          className={isHovered ? "hovered" : ""}
-          ref={ref}
-          isVisible={inView}
-        >
-          <ImgSkill src={isHovered ? react : js} alt="Logo" />
-          <TitleSkill>{isHovered ? "React" : "Javascript"}</TitleSkill>
-          <InfoText>
-            {isHovered
-              ? "More than six projects in react using a variety of libraries."
-              : ""}
-          </InfoText>
-          <span>{isHovered ? "read more.." : ""}</span>
-        </CardSkill>
-
-        <CardSkill
-          className={isHovered ? "hovered" : ""}
-          ref={ref}
-          isVisible={inView}
-        >
-          <ImgSkill src={isHovered ? rails : ruby} alt="Logo" />
-          <TitleSkill>{isHovered ? "Ruby on Rails" : "Ruby"}</TitleSkill>
-          <InfoText>
-            {isHovered
-              ? "With three projects and implementing a variety of gems, I have experience in the backend branch."
-              : ""}
-          </InfoText>
-          <span>{isHovered ? "read more.." : ""}</span>
-        </CardSkill>
-
-        <CardSkill
-          className={isHovered ? "hovered" : ""}
-          ref={ref}
-          isVisible={inView}
-        >
-          <ImgSkill src={isHovered ? sql : postgresql} alt="Logo" />
-          <TitleSkill>{isHovered ? "SQL" : "Postgresql"}</TitleSkill>
-          <InfoText>
-            {isHovered ? "Experience in database creation and management." : ""}
-          </InfoText>
-          <span>{isHovered ? "read more.." : ""}</span>
-        </CardSkill>
-
-        <CardSkill
-          className={isHovered ? "hovered" : ""}
-          ref={ref}
-          isVisible={inView}
-        >
-          <ImgSkill src={isHovered ? github : git} alt="Logo" />
-          <TitleSkill>{isHovered ? "Github" : "Git"}</TitleSkill>
-          <InfoText>
-            {isHovered
-              ? "Using git in terminal I can easily have a good handle on work reflected in my Github profile."
-              : ""}
-          </InfoText>
-          <span>{isHovered ? "read more.." : ""}</span>
-        </CardSkill>
-
-        <CardSkill
-          className={isHovered ? "hovered" : ""}
-          ref={ref}
-          isVisible={inView}
-        >
-          <ImgSkill src={isHovered ? vuejs : typescript} alt="Logo" />
-          <TitleSkill>{isHovered ? "Vuejs" : "Typescript"}</TitleSkill>
-          <InfoText>
-            {isHovered
-              ? "With three months of learning I can trust that I will continue good academic and professional growth."
-              : ""}
-          </InfoText>
-          <span>{isHovered ? "read more.." : ""}</span>
-        </CardSkill>
-
-        <CardSkill
-          className={isHovered ? "hovered" : ""}
-          ref={ref}
-          isVisible={inView}
-        >
-          <ImgSkill src={moremore} alt="Logo" />
-          <InfoText>
-            {isHovered ? "More technologies coming soon..." : "...."}
-          </InfoText>
-        </CardSkill>
+        {Object.keys(cardStates).map((cardName) => (
+          <CardSkill
+            key={cardName}
+            className={showFrameworks ? "hovered" : ""}
+            onClick={() => handleCardClick(cardName)}
+          >
+            <ImgSkill src={renderCardContent(cardName).image} alt="Logo" />
+            <TitleSkill>{renderCardContent(cardName).title}</TitleSkill>
+            <InfoText>{renderCardContent(cardName).description}</InfoText>
+          </CardSkill>
+        ))}
       </SkillsContainer>
     </SectionThree>
   );

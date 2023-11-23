@@ -4,7 +4,6 @@ import { slideInBlurredLeft } from "./Presentacion";
 import Photo from "../assets/Photo3.jpg";
 
 const SectionTwo = styled.section`
-  animation: ${slideInBlurredLeft} 1s ease-in-out;
   height: 100vh;
   background-color: #364153;
   display: flex;
@@ -20,7 +19,6 @@ const SectionTwo = styled.section`
 
   @media (max-width: 500px) {
     flex-direction: column;
-    gap: 5px;
     padding: 2rem 1rem;
     height: auto;
   }
@@ -56,6 +54,8 @@ const PhotoMe = styled.img`
     max-height: 250px;
   }
   @media (max-width: 500px) {
+    filter: drop-shadow(4px 4px 50px #6363634a);
+
     max-width: 150px;
     max-height: 200px;
   }
@@ -70,12 +70,12 @@ const AboutMe = styled.article`
   gap: 16px;
   padding: 0 1rem;
   color: #ededed;
+  animation: ${slideInBlurredLeft} 1.5s ease-in-out;
 
   h2 {
     ${typography.head.head4}
     @media (max-width: 500px) {
       ${typography.head.head5}
-      filter: drop-shadow(4px 4px 8px #fffcfc);
     }
   }
   @media (max-width: 500px) {
