@@ -48,8 +48,19 @@ const SocialIcons = styled.div`
   }
 `;
 
+const SocialIcon = styled.div`
+  font-size: 30px;
+  transition: color 0.3s;
+  cursor: pointer;
+  filter: drop-shadow(-2px 4px 8px #f8f8f86d);
+
+  &:hover {
+    color: ${props => props.hoverColor || "#ffffff"};
+  }
+`;
+
 const Logo = styled.img`
-  filter: drop-shadow(4px 4px 8px #9999996e);
+  filter: drop-shadow(4px 4px 8px #ffffff6d);
   width: 100px;
   height: 70px;
   transition: all 0.8s;
@@ -68,9 +79,9 @@ function Footer() {
       <SocialContain>
         <p>To see more of my work, visit my socials:</p>
         <SocialIcons style={{ flexDirection: "row" }}>
-          <FaLinkedin style={{ fontSize: "30px" }} />{" "}
-          <FaSquareGithub style={{ fontSize: "30px" }} />{" "}
-          <ImMail4 style={{ fontSize: "30px" }} />
+          <SocialIcon as={FaLinkedin} hoverColor="#0A66C2" />
+          <SocialIcon as={FaSquareGithub} hoverColor="#171515" />
+          <SocialIcon as={ImMail4} />
         </SocialIcons>
         <div>
           <p>fernando.samuelperez01@gmail.com</p>
@@ -79,9 +90,9 @@ function Footer() {
       <SocialContain>
         <p>Source code:</p>
         <SocialIcons>
-          <FaReact style={{ fontSize: "30px" }} />
+        <SocialIcon as={FaReact} hoverColor="#61DAFB" />
           <p>React</p>
-          <IoLogoJavascript style={{ fontSize: "30px" }} />
+          <SocialIcon as={IoLogoJavascript} hoverColor="#F7DF1E" />
           <p>Javascript</p>
         </SocialIcons>
       </SocialContain>

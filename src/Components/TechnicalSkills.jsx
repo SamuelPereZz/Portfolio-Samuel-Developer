@@ -15,7 +15,9 @@ import bootstrap from "../assets/Skills/bootstrap.svg";
 import moremore from "../assets/Skills/more.svg";
 import { colors, typography } from "../Styles";
 import { useState } from "react";
-import { Button1 } from "./Button";
+import { FaArrowLeft } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
+import { Button1, Button2, Button3, Button4 } from "./Button";
 
 const SectionThree = styled.div`
   display: flex;
@@ -95,6 +97,17 @@ const InfoText = styled.p`
   @media (max-width: 500px) {
     ${typography.overline.overline2}
   }
+`;
+
+const Button = styled(Button1)`
+  width: auto;
+  border-radius: 16px;
+  display: flex;
+  padding: 8px 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
 `;
 
 function TechnicalSkills() {
@@ -234,11 +247,19 @@ function TechnicalSkills() {
 
   return (
     <SectionThree>
-      <Button1 onClick={handleButtonClick}>
-        {showFrameworks
-          ? "See Programming languages.."
-          : "See Frameworks and Libraries..."}
-      </Button1>
+      <Button onClick={handleButtonClick}>
+        {showFrameworks ? (
+          <>
+            <FaArrowLeft style={{ color: "#cd111177", fontSize: "30px" }} /> See
+            Programming languages
+          </>
+        ) : (
+          <>
+            See Frameworks and Libraries{" "}
+            <FaArrowRight style={{ color: "#12b95795", fontSize: "30px" }} />
+          </>
+        )}
+      </Button>
 
       <SkillsContainer id="cards-container">
         {Object.keys(cardStates).map((cardName) => (
