@@ -18,7 +18,6 @@ import { useRef, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import { Button1 } from "./Button";
-import { NavLink } from "react-router-dom";
 
 const SectionThree = styled.div`
   display: flex;
@@ -28,6 +27,9 @@ const SectionThree = styled.div`
   gap: 2rem;
   padding: 48px 65px;
   margin: 0 auto;
+  @media (max-width: 1100px) {
+    padding: 48px 40px;
+  }
 `;
 
 const SkillsContainer = styled.div`
@@ -251,9 +253,9 @@ function TechnicalSkills() {
     const { title, description, image } = contentMap[cardName];
     return { title, description, image };
   };
-
   return (
     <SectionThree ref={sectionThreeRef}>
+      <Title>Knowledge in development</Title>
       <SkillsContainer id="cards-container">
         {Object.keys(cardStates).map((cardName) => (
           <CardSkill
@@ -283,5 +285,17 @@ function TechnicalSkills() {
     </SectionThree>
   );
 }
+
+const Title = styled.p`
+  ${typography.head.head3}
+  font-weight: 600;
+  filter: drop-shadow(1px 8px 4px #000000bb);
+  @media (max-width: 900px) {
+    ${typography.head.head4}
+  }
+  @media (max-width: 500px) {
+    ${typography.head.head5}
+  }
+`;
 
 export default TechnicalSkills;

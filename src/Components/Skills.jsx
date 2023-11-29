@@ -92,7 +92,7 @@ const TitleSkill = styled.p`
   ${typography.head.head3}
   color:#ededed;
   font-weight: 600;
-  filter: drop-shadow(4px 4px 8px #acacac);
+  filter: drop-shadow(1px 8px 4px  #acacacdf);
 `;
 
 function Skills() {

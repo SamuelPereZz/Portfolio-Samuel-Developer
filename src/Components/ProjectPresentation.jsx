@@ -35,7 +35,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  gap: 3rem;
   padding: 3rem 2rem;
   color: #ededed;
   @media (max-width: 900px) {
@@ -65,7 +65,7 @@ const Photo = styled.div`
     index !== activeSlide &&
     `
     opacity: 0.4;
-    transform: scale(0.7);
+    transform: scale(0.6);
 `}
   @media (max-width: 900px) {
     ${({ index, activeSlide }) =>
@@ -112,12 +112,13 @@ const ProjectImage = styled.img`
   max-width: 850px;
   max-height: 550px;
   border-radius: 8px;
+  object-fit: cover;
   @media (max-width: 1100px) {
     max-width: 650px;
     max-height: 550px;
   }
   @media (max-width: 500px) {
-    max-width: 390px;
+    max-width: 400px;
     max-height: 380px;
   }
   @media (max-width: 380px) {
@@ -186,7 +187,7 @@ function ProjectPresentation() {
       <CarouselContainer>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-          spaceBetween={-99}
+          spaceBetween={50}
           slidesPerView={2}
           centeredSlides={true}
           pagination={{ clickable: paginationClickable }}
@@ -210,7 +211,7 @@ function ProjectPresentation() {
       </CarouselContainer>
       <NavigationLink to={"/portafolio"}>
         <Button3>
-          <GrProjects style={{ fontSize: "22px", color: "#863179" }}/>
+          <GrProjects style={{ fontSize: "22px", color: "#863179" }} />
           More information about my projects...
         </Button3>
       </NavigationLink>
