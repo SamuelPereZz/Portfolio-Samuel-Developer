@@ -1,9 +1,9 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { typography } from "../Styles";
-import { useState } from "react";
 import Input from "./Input";
 import { Button1 } from "./Button";
+import { ValidationError, useForm } from "@formspree/react";
 
 const kenburnT = css`
   @-webkit-keyframes kenburns-top {
@@ -65,6 +65,10 @@ const ModalCard = styled.div`
   align-items: center;
   gap: 1rem;
   ${kenburnT};
+  @media (max-width: 500px) {
+    width: auto;
+    padding: 1.5rem 1rem;
+  }
 `;
 
 const Title = styled.p`
@@ -92,30 +96,23 @@ const LabelForm = styled.label`
   }
 `;
 
-const ContactForm = ({ isOpen, onClose }) => {
+const MessageSubm = styled.p`
+  color: #0b7d0b;
+  ${typography.head.head4}
+  font-weight: 600;
+`;
+
+function ContactForm({ isOpen, onClose }) {
   if (!isOpen) {
     return null;
   }
 
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phoneNumber: "",
-    company: "",
-    message: "",
-  });
+  const [state, handleSubmit] = useForm("xdorrlpl");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Datos enviados:", formData);
+  const closeModal = () => {
+    setTimeout(() => {
+      onClose();
+    }, 2000);
   };
 
   const handleCardClick = (e) => {
@@ -125,58 +122,58 @@ const ContactForm = ({ isOpen, onClose }) => {
   return (
     <ModalOverlay onClick={onClose}>
       <ModalCard onClick={handleCardClick}>
-        <Title>Send me a message</Title>
-        <FormContainer onSubmit={handleSubmit}>
-          <LabelForm htmlFor="fullName">Full name</LabelForm>
-          <Input
-            type="text"
-            name="fullName"
-            placeholder="Jhon Doe"
-            value={formData.fullName}
-            onChange={handleChange}
-            required
-          />
-          <LabelForm htmlFor="email">email</LabelForm>
-          <Input
-            id="email"
-            name="email"
-            placeholder="user@gmail.com"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <LabelForm htmlFor="company">Company</LabelForm>
-          <Input
-            id="company"
-            name="company"
-            placeholder="Technology company"
-            value={formData.phoneNumber}
-            onChange={handleChange}
-            required
-          />
-          <LabelForm htmlFor="phone">phone</LabelForm>
-          <Input
-            id="phone"
-            name="phone"
-            placeholder="999-888-777"
-            value={formData.company}
-            onChange={handleChange}
-          />
-          <LabelForm htmlFor="message">Leave me a message</LabelForm>
-          <Message
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Your message here..."
-            required
-          />
-          <Button1 type="submit">Enviar</Button1>
-        </FormContainer>
+        {state.succeeded ? (
+          <>
+            <MessageSubm>Submitted form!</MessageSubm>
+            {closeModal()}
+          </>
+        ) : (
+          <>
+            <Title>Send me a message</Title>
+            <FormContainer onSubmit={handleSubmit}>
+              <LabelForm htmlFor="fullName">Full name</LabelForm>
+              <Input type="text" name="fullName" placeholder="Jhon Doe" />
+              <LabelForm htmlFor="email">email</LabelForm>
+              <Input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="user@gmail.com"
+              />
+              <ValidationError
+                prefix="Email"
+                field="email"
+                errors={state.errors}
+              />
+              <LabelForm htmlFor="company">Company</LabelForm>
+              <Input
+                id="company"
+                name="company"
+                placeholder="Technology company"
+              />
+              <LabelForm htmlFor="phone">phone</LabelForm>
+              <Input id="phone" name="phone" placeholder="999-888-777" />
+              <LabelForm htmlFor="message">Leave me a message</LabelForm>
+              <Message
+                id="message"
+                name="message"
+                placeholder="Your message here..."
+              />
+              <ValidationError
+                prefix="Message"
+                field="message"
+                errors={state.errors}
+              />
+              <Button1 type="submit" disabled={state.submitting}>
+                Enviar
+              </Button1>
+            </FormContainer>
+          </>
+        )}
       </ModalCard>
     </ModalOverlay>
   );
-};
+}
 
 const Message = styled.textarea`
   width: 22rem;
@@ -189,6 +186,9 @@ const Message = styled.textarea`
   &:focus {
     border-color: #104db0;
     box-shadow: 0 0 5px rgba(16, 77, 176, 0.758);
+  }
+  @media (max-width: 500px) {
+    width: 19rem;
   }
 `;
 

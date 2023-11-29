@@ -5,6 +5,9 @@ import { ImMail4 } from "react-icons/im";
 import { FaReact } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
 import logo from "../assets/Logo2.svg";
+import { NavLink } from "react-router-dom";
+import { typography } from "../Styles";
+import { FaCodeBranch } from "react-icons/fa";
 
 const Container = styled.div`
   color: #edededb8;
@@ -12,7 +15,6 @@ const Container = styled.div`
   background-color: #0e1425;
   display: flex;
   gap: 60px;
-  align-items: center;
   padding: 20px 15rem;
   justify-content: space-between;
   @media (max-width: 900px) {
@@ -27,10 +29,9 @@ const Container = styled.div`
 const SocialContain = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   font-style: italic;
   @media (max-width: 900px) {
-    flex-direction: column;
     gap: 15px;
     justify-items: center;
     align-items: center;
@@ -40,22 +41,25 @@ const SocialContain = styled.div`
 const SocialIcons = styled.div`
   display: flex;
   gap: 15px;
-  @media (max-width: 450px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  align-items: center;
+  @media (max-width: 500px) {
+    gap: 8px;
   }
 `;
 
 const SocialIcon = styled.div`
-  font-size: 30px;
+  font-size: 27px;
   transition: color 0.3s;
   cursor: pointer;
-  filter: drop-shadow(-2px 4px 8px #f8f8f86d);
-
-  &:hover {
-    color: ${props => props.hoverColor || "#ffffff"};
+  transition: transform 0.3s ease;
+  &:hover,
+  &:focus {
+    color: ${(props) => props.hoverColor || "#ffffff"};
+    transform: scale(1.3);
+    filter: drop-shadow(-2px 4px 8px #f8f8f86d);
+  }
+  @media (max-width: 400px) {
+    font-size: 23px;
   }
 `;
 
@@ -63,9 +67,30 @@ const Logo = styled.img`
   filter: drop-shadow(4px 4px 8px #ffffff6d);
   width: 100px;
   height: 70px;
-  transition: all 0.8s;
-  &:hover {
-    transform: scale(1.05);
+  transition: transform 0.3s ease;
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+    filter: drop-shadow(4px 4px 8px #6296fd6c);
+  }
+`;
+
+const LinkNav = styled(NavLink)`
+  filter: drop-shadow(4px 4px 8px #364153a1);
+  text-decoration: none;
+  color: inherit;
+  :hover {
+    filter: drop-shadow(4px 4px 8px #777f8b9f);
+  }
+`;
+
+const RepoPorta = styled.p`
+  ${typography.text.body1}
+  transition: transform 0.3s ease;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+    color: white;
   }
 `;
 
@@ -79,8 +104,16 @@ function Footer() {
       <SocialContain>
         <p>To see more of my work, visit my socials:</p>
         <SocialIcons style={{ flexDirection: "row" }}>
-          <SocialIcon as={FaLinkedin} hoverColor="#0A66C2" />
-          <SocialIcon as={FaSquareGithub} hoverColor="#171515" />
+          <LinkNav
+            to={
+              "https://www.linkedin.com/in/fernando-samuel-p%C3%A9rez-951812285/"
+            }
+          >
+            <SocialIcon as={FaLinkedin} hoverColor="#0A66C2" />
+          </LinkNav>
+          <LinkNav to={"https://github.com/SamuelPereZz"}>
+            <SocialIcon as={FaSquareGithub} hoverColor="#171515" />
+          </LinkNav>
           <SocialIcon as={ImMail4} />
         </SocialIcons>
         <div>
@@ -90,10 +123,18 @@ function Footer() {
       <SocialContain>
         <p>Source code:</p>
         <SocialIcons>
-        <SocialIcon as={FaReact} hoverColor="#61DAFB" />
+          <SocialIcon as={FaReact} hoverColor="#61DAFB" />
           <p>React</p>
           <SocialIcon as={IoLogoJavascript} hoverColor="#F7DF1E" />
           <p>Javascript</p>
+        </SocialIcons>
+        <SocialIcons style={{ flexDirection: "row" }}>
+          <SocialIcon as={FaCodeBranch} hoverColor="#197b12" />
+          <LinkNav
+            to={"https://github.com/SamuelPereZz/Portfolio-Samuel-Developer"}
+          >
+            <RepoPorta>See repository on github</RepoPorta>
+          </LinkNav>
         </SocialIcons>
       </SocialContain>
     </Container>

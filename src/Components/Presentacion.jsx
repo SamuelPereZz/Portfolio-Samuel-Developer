@@ -2,6 +2,9 @@ import styled from "@emotion/styled";
 import { typography } from "../Styles";
 import photo from "../assets/Photo.jpg";
 import { keyframes } from "@emotion/react";
+import { NavLink } from "react-router-dom";
+import { Button1 } from "./Button";
+import { FaBookReader } from "react-icons/fa";
 
 export const slideInBlurredLeft = keyframes`
   0% {
@@ -19,20 +22,22 @@ export const slideInBlurredLeft = keyframes`
 `;
 
 const FirstSection = styled.div`
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  padding: 9rem 10rem;
+  padding: 1rem 10rem;
   margin: 0 auto;
+
   @media (max-width: 1100px) {
     flex-direction: column-reverse;
     justify-content: center;
     padding: 3rem 6rem;
   }
+
   @media (max-width: 500px) {
-    padding: 2rem 3rem;
+    padding: 3rem 3rem;
+    height: auto;
   }
 `;
 
@@ -54,10 +59,10 @@ const SummaryMeContainer = styled.div`
   }
 `;
 
-const PhotoDiv = styled.div`
+const PhotoContainer = styled.div`
   border-radius: 8px;
-  width: 220px;
-  height: 320px;
+  width: 320px;
+  height: 380px;
   display: flex;
   @media (max-width: 1100px) {
     max-width: 200px;
@@ -105,26 +110,51 @@ const SummaryMe = styled.p`
 
 function Presentacion() {
   return (
-    <FirstSection>
-      <SummaryMeContainer>
-        <Greeting>
-          Hi there! I'm <span>Samuel Pérez</span>, a passionate{" "}
-          <span>developer</span> on a journey of endless curiosity.
-        </Greeting>
-        <SummaryMe>
-          I thrive on crafting elegant and robust solutions, bringing ideas to
-          life through code. <br /> With a keen eye for detail, I ensure not
-          only functionality but also aesthetics in all my projects. My love for
-          technology extends beyond coding I'm constantly exploring new
-          technologies and methodologies to stay at the forefront of the
-          ever-evolving tech landscape.
-        </SummaryMe>
-      </SummaryMeContainer>
-      <PhotoDiv>
-        <PhotoMe src={photo} alt="Photo Samuel Pérez" />
-      </PhotoDiv>
-    </FirstSection>
+    <Container>
+      <FirstSection>
+        <SummaryMeContainer>
+          <Greeting>
+            Hi there! I'm <span>Samuel Pérez</span>, a passionate{" "}
+            <span>developer</span> on a journey of endless curiosity.
+          </Greeting>
+          <SummaryMe>
+            I thrive on crafting elegant and robust solutions, bringing ideas to
+            life through code. <br /> With a keen eye for detail, I ensure not
+            only functionality but also aesthetics in all my projects. My love
+            for technology extends beyond coding I'm constantly exploring new
+            technologies and methodologies to stay at the forefront of the
+            ever-evolving tech landscape.
+          </SummaryMe>
+        </SummaryMeContainer>
+        <PhotoContainer>
+          <PhotoMe src={photo} alt="Photo Samuel Pérez" />
+        </PhotoContainer>
+      </FirstSection>
+      <LinkNav to={"/about-me"}>
+        <Button1>
+          {" "}
+          <FaBookReader style={{ fontSize: "22px" }} />
+          Discover more about Me...
+        </Button1>
+      </LinkNav>
+    </Container>
   );
 }
+const Container = styled.div`
+  padding: 6rem 0;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 900px) {
+    height: auto;
+  }
+`;
+
+const LinkNav = styled(NavLink)`
+  text-decoration: none;
+  animation: ${slideInBlurredLeft} 1s ease-in-out;
+`;
 
 export default Presentacion;

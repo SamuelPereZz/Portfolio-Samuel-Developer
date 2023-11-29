@@ -14,10 +14,11 @@ import vuejs from "../assets/Skills/vuejs.svg";
 import bootstrap from "../assets/Skills/bootstrap.svg";
 import moremore from "../assets/Skills/more.svg";
 import { colors, typography } from "../Styles";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
-import { Button1, Button2, Button3, Button4 } from "./Button";
+import { Button1 } from "./Button";
+import { NavLink } from "react-router-dom";
 
 const SectionThree = styled.div`
   display: flex;
@@ -64,7 +65,7 @@ const CardSkill = styled.div`
     justify-content: space-around;
   }
   @media (max-width: 500px) {
-    width: 170px;
+    width: 150px;
     text-align: center;
   }
 `;
@@ -101,13 +102,15 @@ const InfoText = styled.p`
 
 const Button = styled(Button1)`
   width: auto;
-  border-radius: 16px;
   display: flex;
   padding: 8px 1rem;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  text-transform: uppercase;
+  @media (max-width: 500px) {
+    padding: 5px 16px;
+    width: auto;
+  }
 `;
 
 function TechnicalSkills() {
@@ -122,6 +125,7 @@ function TechnicalSkills() {
     vuejs: false,
     more: false,
   });
+  const sectionThreeRef = useRef(null);
 
   const handleButtonClick = () => {
     setShowFrameworks(!showFrameworks);
@@ -136,6 +140,9 @@ function TechnicalSkills() {
       vuejs: false,
       more: false,
     });
+    if (sectionThreeRef.current) {
+      sectionThreeRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const handleCardClick = (cardName) => {
@@ -246,21 +253,7 @@ function TechnicalSkills() {
   };
 
   return (
-    <SectionThree>
-      <Button onClick={handleButtonClick}>
-        {showFrameworks ? (
-          <>
-            <FaArrowLeft style={{ color: "#cd111177", fontSize: "30px" }} /> See
-            Programming languages
-          </>
-        ) : (
-          <>
-            See Frameworks and Libraries{" "}
-            <FaArrowRight style={{ color: "#12b95795", fontSize: "30px" }} />
-          </>
-        )}
-      </Button>
-
+    <SectionThree ref={sectionThreeRef}>
       <SkillsContainer id="cards-container">
         {Object.keys(cardStates).map((cardName) => (
           <CardSkill
@@ -274,6 +267,19 @@ function TechnicalSkills() {
           </CardSkill>
         ))}
       </SkillsContainer>
+      <Button onClick={handleButtonClick}>
+        {showFrameworks ? (
+          <>
+            <FaArrowLeft style={{ color: "#ededed", fontSize: "25px" }} /> See
+            Programming languages
+          </>
+        ) : (
+          <>
+            See Frameworks and Libraries{" "}
+            <FaArrowRight style={{ color: "#ededed", fontSize: "25px" }} />
+          </>
+        )}
+      </Button>
     </SectionThree>
   );
 }

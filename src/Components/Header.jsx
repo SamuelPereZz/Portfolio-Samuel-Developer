@@ -45,8 +45,8 @@ const LinkNav = styled(NavLink)`
 
 const Logo = styled.img`
   filter: drop-shadow(4px 4px 8px #999999);
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   transition: all 0.8s;
   object-fit: cover;
   &:hover {

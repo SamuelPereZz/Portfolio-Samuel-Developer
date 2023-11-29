@@ -7,8 +7,9 @@ export const Button1 = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 161px;
-  height: 55px;
+  min-width: 161px;
+  padding: 2px 10px;
+  height: 40px;
   background-color: #364153;
   border-radius: 8px;
   color: #ededed;
@@ -16,6 +17,15 @@ export const Button1 = styled.button`
   cursor: pointer;
   &:hover {
     background-color: #8a8fa3;
+    color: #000000;
+  }
+  &:active {
+    background-color: #313944;
+    color: #b2b2b2;
+  }
+
+  @media (max-width: 500px) {
+    padding: 5px 10px;
   }
 `;
 
@@ -42,12 +52,25 @@ export const Button3 = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 161px;
-  height: 40px;
+  min-width: 161px;
+  min-height: 40px;
   background-color: none;
   border-radius: 8px;
-  color: black;
+  padding: 2px 10px;
+  color: #0e1425;
   border: none;
+  &:hover {
+    background-color: #aebdc7;
+  }
+  &:active {
+    border: 1px solid #0e1425;
+    background-color: #8c98a0;
+    color: #222839;
+  }
+  @media (max-width: 500px) {
+    min-width: 80px;
+    ${typography.text.body2}
+  }
 `;
 
 export const Button4 = styled.button`
@@ -55,7 +78,8 @@ export const Button4 = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 161px;
+  min-width: 161px;
+  padding: 2px 10px;
   height: 40px;
   background-color: #ededed;
   border-radius: 8px;

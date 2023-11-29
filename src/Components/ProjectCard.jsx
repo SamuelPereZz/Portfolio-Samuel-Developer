@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { typography } from "../Styles";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
-
 const CardProject = styled.div`
   filter: drop-shadow(4px 4px 8px #364153a1);
   border-radius: 8px;
@@ -19,7 +18,7 @@ const CardProject = styled.div`
   justify-content: space-between;
   @media (max-width: 500px) {
     gap: 1rem;
-    width: 380px;
+    width: 350px;
     min-height: 247px;
     height: auto;
   }
@@ -28,7 +27,7 @@ const CardProject = styled.div`
     transform: scale(1.05);
   }
 
-//Icono esquinado 
+  //Icono esquinado
   position: relative;
   .project-icon {
     position: absolute;
@@ -36,6 +35,13 @@ const CardProject = styled.div`
     right: 10px;
     opacity: 0;
     transition: opacity 0.3s ease;
+    color: #5b5b5c99;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    :hover {
+      color: #5ca3c6;
+    }
   }
   &:hover .project-icon,
   &:focus-within .project-icon {
@@ -46,6 +52,10 @@ const CardProject = styled.div`
 const IconsContainer = styled.div`
   display: flex;
   gap: 16px;
+  @media (max-width: 500px) {
+    display: grid;
+    grid-template-columns: repeat(6, 2rem);
+  }
 `;
 
 const ProjecTitle = styled.p`
@@ -76,9 +86,17 @@ const Learning = styled.div`
   color: #ededed;
   @media (max-width: 500px) {
     height: auto;
+    padding: 2px;
   }
   :hover {
     background-color: #acaeb7;
+  }
+`;
+const StyledIcon = styled.div`
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.3);
   }
 `;
 
@@ -86,15 +104,16 @@ const ProjectCard = ({ project }) => {
   return (
     <CardProject>
       <div className="project-icon">
-        <FaArrowUpRightFromSquare  style={{ fontSize: "30px" }} />
+        visit website <FaArrowUpRightFromSquare style={{ fontSize: "30px" }} />
       </div>
       <IconsContainer>
         {project.icons.map((icon, index) => (
-          <icon.Icon
-            key={index}
-            style={{ fontSize: "30px", color: icon.color || null }}
-            title={icon.title}
-          />
+          <StyledIcon key={index}>
+            <icon.Icon
+              style={{ fontSize: "30px", color: icon.color || null }}
+              title={icon.title}
+            />
+          </StyledIcon>
         ))}
       </IconsContainer>
       <ProjecTitle>{project.title}</ProjecTitle>

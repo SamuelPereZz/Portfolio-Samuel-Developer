@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import Presentacion from "../Components/Presentacion";
+import PresentacionProject from "../Components/ProjectPresentation";
+import ContactMessage from "../Components/ContactMessage";
 
 const Container = styled.div`
   display: flex;
@@ -10,9 +12,11 @@ const Container = styled.div`
 
 function Home() {
   return (
-      <Container>
-        <Presentacion />
-      </Container>
+    <Container>
+      <Presentacion />
+      <PresentacionProject />
+      <ContactMessage/>
+    </Container>
   );
 }
 

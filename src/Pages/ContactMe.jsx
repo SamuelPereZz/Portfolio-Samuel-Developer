@@ -8,8 +8,10 @@ import { FaInstagram } from "react-icons/fa";
 import Photo from "../assets/contactme.svg";
 import { Button4 } from "../Components/Button";
 import { typography } from "../Styles";
-import Modal from "../Components/ContactForm";
+import Modal from "../Components/ModalForm";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { AiOutlineMessage } from "react-icons/ai";
 
 const SectionAll = styled.div`
   height: 100vh;
@@ -30,7 +32,6 @@ const SectionAll = styled.div`
     padding: 4rem 2rem;
   }
   @media (max-width: 500px) {
-    
   }
 `;
 
@@ -68,6 +69,10 @@ const CardContact = styled.div`
   padding: 20px 40px;
   border: 1px solid black;
   background-color: #ededed;
+  @media (max-width: 500px) {
+    width: 330px;
+    padding: 20px 20px;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -78,18 +83,7 @@ const InfoContainer = styled.div`
 
 const ContactInfo = styled.div`
   display: flex;
-  gap: 8px;
   align-items: center;
-`;
-
-const Icons = styled.div`
-  display: flex;
-  gap: 6px;
-  background-color: #8a8fa3;
-  padding: 5px 5px;
-  border-radius: 8px;
-  align-items: center;
-  color: #ededed;
 `;
 
 const IconsContainer = styled.div`
@@ -101,65 +95,6 @@ const Title = styled.p`
   ${typography.head.head5}
   font-weight: 600;
 `;
-
-function ContactMePage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  return (
-    <SectionAll  >
-      <InvitationMessage>
-        <h1>I invite you to contact me at this time</h1>
-        <Invitation>
-          Looking to expand your team? Or do you need a web developer for a
-          specific project? If I can help you in any way don't hesitate to fill
-          this form.
-        </Invitation>
-      </InvitationMessage>
-      <Container>
-        <CardContact>
-          <Title>Contact me</Title>
-          <InfoContainer>
-            <ContactInfo>
-              <MdLocationOn />
-              <p>Mexico City</p>
-            </ContactInfo>
-            <ContactInfo>
-              <MdMarkEmailRead />
-              <p>fernando.samuelperez01@gmail.com</p>
-            </ContactInfo>
-            <ContactInfo>
-              <MdPermPhoneMsg /> <p>MX (+52) 5549291970</p>
-            </ContactInfo>
-          </InfoContainer>
-          <IconsContainer>
-            <Icons>
-              <FaInstagram />
-            </Icons>
-            <Icons>
-              <FaLinkedin />
-            </Icons>
-            <Icons>
-              <FaGithub />
-            </Icons>
-          </IconsContainer>
-        </CardContact>
-        <PhotoDiv>
-          <PhotoMe src={Photo} alt="Logo" />
-        </PhotoDiv>
-      </Container>
-      <Button4 onClick={openModal}>Send me a message</Button4>
-      <Modal isOpen={isModalOpen} onClose={closeModal} />
-    </SectionAll>
-  );
-}
 
 const PhotoDiv = styled.div`
   display: flex;
@@ -179,5 +114,113 @@ const PhotoMe = styled.img`
     flex-direction: column;
   }
 `;
+
+const LinkNav = styled(NavLink)`
+  text-decoration: none;
+  color: inherit;
+  :hover {
+  }
+`;
+const SocialIcon = styled.div`
+  font-size: 27px;
+  transition: color 0.3s;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: flex;
+  gap: 6px;
+  background-color: #ffffff;
+  padding: 2px;
+  border-radius: 6px;
+  align-items: center;
+  color: ${(props) => props.hoverColor};
+  &:hover,
+  &:focus {
+    color: ${(props) => props.hoverColor || "#ffffff"};
+    transform: scale(1.3);
+    filter: drop-shadow(-2px 4px 8px #0000006c);
+  }
+  @media (max-width: 400px) {
+    font-size: 23px;
+  }
+`;
+
+const Icons = styled.div`
+  margin-right: 8px;
+  font-size: 27px;
+  transition: transform 0.3s ease;
+  color: ${(props) => props.hoverColor};
+  align-items: center;
+  @media (max-width: 500px) {
+    font-size: 20px;
+    margin-right: 8px;
+  }
+`;
+
+function ContactMePage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <SectionAll>
+      <InvitationMessage>
+        <h1>I invite you to contact me at this time</h1>
+        <Invitation>
+          Looking to expand your team? Or do you need a web developer for a
+          specific project? If I can help you in any way don't hesitate to fill
+          this form.
+        </Invitation>
+      </InvitationMessage>
+      <Container>
+        <CardContact>
+          <Title>Contact me</Title>
+          <InfoContainer>
+            <ContactInfo>
+              <Icons as={MdLocationOn} hoverColor="#E1306C" />
+              <p>Mexico City</p>
+            </ContactInfo>
+            <ContactInfo>
+              <Icons as={MdMarkEmailRead} hoverColor="#3062e1" />
+              <p>fernando.samuelperez01@gmail.com</p>
+            </ContactInfo>
+            <ContactInfo>
+              <Icons as={MdPermPhoneMsg} hoverColor="#14b437" />{" "}
+              <p>MX (+52) 5549291970</p>
+            </ContactInfo>
+          </InfoContainer>
+          <IconsContainer>
+            <LinkNav to={"https://www.instagram.com/samuel_perezz00/"}>
+              <SocialIcon as={FaInstagram} hoverColor="#E1306C" />
+            </LinkNav>
+            <LinkNav
+              to={
+                "https://www.linkedin.com/in/fernando-samuel-p%C3%A9rez-951812285/"
+              }
+            >
+              <SocialIcon as={FaLinkedin} hoverColor="#0A66C2" />
+            </LinkNav>
+            <LinkNav to={"https://github.com/SamuelPereZz"}>
+              <SocialIcon as={FaGithub} hoverColor="#171515" />
+            </LinkNav>
+          </IconsContainer>
+        </CardContact>
+        <PhotoDiv>
+          <PhotoMe src={Photo} alt="Logo" />
+        </PhotoDiv>
+      </Container>
+      <Button4 onClick={openModal}>
+        Send me a message!
+        <AiOutlineMessage   style={{ fontSize: "22px"}} />
+      </Button4>
+      <Modal isOpen={isModalOpen} onClose={closeModal} />
+    </SectionAll>
+  );
+}
 
 export default ContactMePage;

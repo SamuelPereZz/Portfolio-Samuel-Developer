@@ -14,6 +14,7 @@ const Entrada = styled.input`
     border-bottom: 1px solid #104db0;
     border-radius: 0px;
   }
+  
 `;
 
 const Input = ({
@@ -29,7 +30,6 @@ const Input = ({
   onChange,
   onBlur,
 }) => {
-  const handlePadding = icon ? "36px" : "1px";
 
   return (
     <div
@@ -52,7 +52,6 @@ const Input = ({
         value={value}
         onChange={onChange}
         onBlur={onBlur}
-        style={{ paddingLeft: handlePadding }}
       />
     </div>
   );
