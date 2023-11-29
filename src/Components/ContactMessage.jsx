@@ -14,8 +14,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   color: #ededed;
-  @media (max-width: 400px) {
-    min-height: 40vh;
+  @media (max-width: 500px) {
+    min-height: auto;
   }
 `;
 
