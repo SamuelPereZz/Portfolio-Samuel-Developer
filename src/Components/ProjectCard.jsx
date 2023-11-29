@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 import { typography } from "../Styles";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
 const CardProject = styled.div`
   filter: drop-shadow(4px 4px 8px #364153a1);
@@ -27,7 +28,6 @@ const CardProject = styled.div`
     transform: scale(1.05);
   }
 
-  //Icono esquinado
   position: relative;
   .project-icon {
     position: absolute;
@@ -100,12 +100,20 @@ const StyledIcon = styled.div`
   }
 `;
 
+const NavigationLink = styled(NavLink)`
+  text-decoration: none;
+`;
+
 const ProjectCard = ({ project }) => {
   return (
     <CardProject>
-      <div className="project-icon">
-        visit website <FaArrowUpRightFromSquare style={{ fontSize: "30px" }} />
-      </div>
+      <NavigationLink to={project.link}>
+        <div className="project-icon">
+          Visit repository
+          <FaArrowUpRightFromSquare style={{ fontSize: "30px" }} />
+        </div>
+      </NavigationLink>
+
       <IconsContainer>
         {project.icons.map((icon, index) => (
           <StyledIcon key={index}>
@@ -139,6 +147,7 @@ ProjectCard.propTypes = {
         color: PropTypes.string,
       })
     ).isRequired,
+    link: PropTypes.string.isRequired,
   }).isRequired,
 };
 

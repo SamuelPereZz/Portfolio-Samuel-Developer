@@ -32,7 +32,7 @@ const SocialContain = styled.div`
   gap: 20px;
   font-style: italic;
   @media (max-width: 900px) {
-    gap: 15px;
+    gap: 20px;
     justify-items: center;
     align-items: center;
   }
@@ -41,7 +41,6 @@ const SocialContain = styled.div`
 const SocialIcons = styled.div`
   display: flex;
   gap: 15px;
-  align-items: center;
   @media (max-width: 500px) {
     gap: 8px;
   }
@@ -52,6 +51,7 @@ const SocialIcon = styled.div`
   transition: color 0.3s;
   cursor: pointer;
   transition: transform 0.3s ease;
+  align-items: center;
   &:hover,
   &:focus {
     color: ${(props) => props.hoverColor || "#ffffff"};
@@ -64,14 +64,13 @@ const SocialIcon = styled.div`
 `;
 
 const Logo = styled.img`
-  filter: drop-shadow(4px 4px 8px #ffffff6d);
   width: 100px;
   height: 70px;
   transition: transform 0.3s ease;
   &:hover,
   &:focus {
     transform: scale(1.2);
-    filter: drop-shadow(4px 4px 8px #6296fd6c);
+    filter: drop-shadow(4px 4px 8px #ffffff6d);
   }
 `;
 

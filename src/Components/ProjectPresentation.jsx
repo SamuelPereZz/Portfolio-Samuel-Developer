@@ -35,14 +35,18 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 4rem;
   padding: 3rem 2rem;
   color: #ededed;
   @media (max-width: 900px) {
     height: auto;
   }
   @media (max-width: 500px) {
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
+  }
+
+  span {
+    color: #af5ea3;
   }
 `;
 
@@ -52,6 +56,7 @@ const CarouselContainer = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
+  padding: 3rem 0;
 `;
 
 const NavigationLink = styled(NavLink)`
@@ -122,8 +127,12 @@ const ProjectImage = styled.img`
     max-height: 380px;
   }
   @media (max-width: 380px) {
-    max-width: 330px;
+    max-width: 340px;
     max-height: 350px;
+  }
+  @media (max-width: 355px) {
+    max-width: 280px;
+    max-height: 280px;
   }
 `;
 
@@ -132,6 +141,19 @@ const Title = styled.p`
   font-weight: 600;
   @media (max-width: 500px) {
     ${typography.head.head5}
+  }
+`;
+
+const SummaryMe = styled.p`
+  ${typography.head.head5}
+  padding: 0 12rem;
+  @media (max-width: 1100px) {
+    ${typography.head.head5}
+    padding: 0 3rem;
+  }
+  @media (max-width: 500px) {
+    ${typography.text.body1}
+    padding: 0 1rem;
   }
 `;
 
@@ -184,6 +206,13 @@ function ProjectPresentation() {
   return (
     <Container>
       <Title>Explore my projects</Title>
+      <SummaryMe>
+        My versatility is reflected in the variety of technologies I have worked
+        with, from <span>Ruby + Rails</span> to <span>Javascript + React.</span>{" "}
+        The ability to adapt and excel in diverse environments has been a core
+        element of my career, and these projects are testament to my ability to
+        embrace technological challenges effectively.
+      </SummaryMe>
       <CarouselContainer>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}

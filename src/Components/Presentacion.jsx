@@ -36,8 +36,9 @@ const FirstSection = styled.div`
   }
 
   @media (max-width: 500px) {
-    padding: 3rem 3rem;
+    padding: 1rem 3rem;
     height: auto;
+    gap: 1rem;
   }
 `;
 
