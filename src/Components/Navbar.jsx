@@ -6,6 +6,8 @@ import { MdCoPresent } from "react-icons/md";
 import { LuMessagesSquare } from "react-icons/lu";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { CgFileDocument } from "react-icons/cg";
+
 
 const Wrapper = styled.nav`
   margin: 0;
@@ -124,6 +126,17 @@ function Navbar() {
               {" "}
               <LuMessagesSquare style={{ color: "#4d9057" }} />
               Contact Me
+            </Button1>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to={"https://drive.google.com/file/d/1w1mWyHSIuG3yAPYayBa1USb-U4_OS_4c/view?usp=sharing"}
+          >
+            <Button1 style={{ width: 140 }}>
+              {" "}
+              <CgFileDocument  style={{ color: "#a0d1ec" }} />
+              CV
             </Button1>
           </NavLink>
         </li>

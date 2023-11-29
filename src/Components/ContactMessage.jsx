@@ -1,8 +1,12 @@
 import styled from "@emotion/styled";
-import { Button3 } from "./Button";
+import { Button1, Button3 } from "./Button";
 import { NavLink } from "react-router-dom";
 import { typography } from "../Styles";
 import { FaPeopleArrows } from "react-icons/fa";
+import { CgFileDocument } from "react-icons/cg";
+import { HiArrowSmallDown } from "react-icons/hi2";
+
+
 
 const Container = styled.div`
   width: 100%;
@@ -25,30 +29,44 @@ const Message = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  p {
-    color: var(--text, #111827);
-    text-align: center;
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 120%;
-    @media (max-width: 1100px) {
-      ${typography.head.head5}
-    }
-    @media (max-width: 500px) {
-      ${typography.head.head6}
-    }
+`;
+
+const ContactText = styled.p`
+  ${typography.head.head4}
+  color: #0e1425;
+  text-align: center;
+  font-weight: 600;
+  @media (max-width: 1100px) {
+    ${typography.head.head5}
+  }
+  @media (max-width: 500px) {
+    ${typography.head.head6}
   }
 `;
+
 function ContactMessage() {
   return (
     <Container>
       <Message>
-        <p>Interested in working together?</p>
+        <ContactText>Interested in working together?</ContactText>
         <NavigationLink to={"/Contact-me"}>
-          <Button3>
+          <Button3 style={{ width: 140, height: 50 }}>
             Get in touch!
             <FaPeopleArrows style={{ fontSize: "22px", color: "#364153" }} />
           </Button3>
+        </NavigationLink>
+        <CvText>Know my experience</CvText>
+        <HiArrowSmallDown  style={{fontSize: "55px", color: "#0e1425"}}/>
+        <NavigationLink
+          to={
+            "https://drive.google.com/file/d/1w1mWyHSIuG3yAPYayBa1USb-U4_OS_4c/view?usp=sharing"
+          }
+        >
+          <Button1 style={{ width: 140, height: 50 }}>
+            {" "}
+            <CgFileDocument style={{ color: "#f6f8fa", fontSize: "25px" }} />
+            CV
+          </Button1>
         </NavigationLink>
       </Message>
     </Container>
@@ -57,5 +75,17 @@ function ContactMessage() {
 
 const NavigationLink = styled(NavLink)`
   text-decoration: none;
+`;
+
+const CvText = styled.p`
+  ${typography.head.head4}
+  color: #ededed;
+  text-align: center;
+  @media (max-width: 1100px) {
+    ${typography.head.head5}
+  }
+  @media (max-width: 500px) {
+    ${typography.head.head6}
+  }
 `;
 export default ContactMessage;
