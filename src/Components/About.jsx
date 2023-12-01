@@ -34,6 +34,7 @@ const PhotoDiv = styled.div`
   width: 300px;
   height: 420px;
   display: flex;
+  justify-content: center;
   @media (max-width: 1300px) {
     max-width: 180px;
     max-height: 250px;
@@ -76,7 +77,9 @@ const AboutMe = styled.article`
   padding: 0 1rem;
   color: #ededed;
   animation: ${slideInBlurredLeft} 1.5s ease-in-out;
-
+  @media (max-width: 1300px) {
+    margin-left: 0;
+  }
   h2 {
     ${typography.head.head4}
     @media (max-width: 500px) {
