@@ -54,7 +54,7 @@ const SocialIcon = styled.div`
   align-items: center;
   &:hover,
   &:focus {
-    color: ${(props) => props.hoverColor || "#ffffff"};
+    color: ${(props) => props.hovercolor || "#ffffff"};
     transform: scale(1.3);
     filter: drop-shadow(-2px 4px 8px #f8f8f86d);
   }
@@ -112,10 +112,10 @@ function Footer() {
             }
             target="_blank"
           >
-            <SocialIcon as={FaLinkedin} hoverColor="#0A66C2" />
+            <SocialIcon as={FaLinkedin} hovercolor="#0A66C2" />
           </LinkNav>
           <LinkNav to={"https://github.com/SamuelPereZz"} target="_blank">
-            <SocialIcon as={FaSquareGithub} hoverColor="#171515" />
+            <SocialIcon as={FaSquareGithub} hovercolor="#171515" />
           </LinkNav>
           <SocialIcon as={ImMail4} />
         </SocialIcons>
@@ -126,9 +126,9 @@ function Footer() {
       <SocialContain>
         <p>Source code:</p>
         <SocialIcons>
-          <SocialIcon as={FaReact} hoverColor="#61DAFB" />
+          <SocialIcon as={FaReact} hovercolor="#61DAFB" />
           <p>React</p>
-          <SocialIcon as={IoLogoJavascript} hoverColor="#F7DF1E" />
+          <SocialIcon as={IoLogoJavascript} hovercolor="#F7DF1E" />
           <p>Javascript</p>
         </SocialIcons>
         <SocialIcons style={{ flexDirection: "row" }}>

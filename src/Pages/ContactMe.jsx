@@ -132,10 +132,10 @@ const SocialIcon = styled.div`
   padding: 2px;
   border-radius: 6px;
   align-items: center;
-  color: ${(props) => props.hoverColor};
+  color: ${(props) => props.hovercolor};
   &:hover,
   &:focus {
-    color: ${(props) => props.hoverColor || "#ffffff"};
+    color: ${(props) => props.hovercolor || "#ffffff"};
     transform: scale(1.3);
     filter: drop-shadow(-2px 4px 8px #0000006c);
   }
@@ -148,7 +148,7 @@ const Icons = styled.div`
   margin-right: 8px;
   font-size: 27px;
   transition: transform 0.3s ease;
-  color: ${(props) => props.hoverColor};
+  color: ${(props) => props.hovercolor};
   align-items: center;
   @media (max-width: 500px) {
     font-size: 20px;
