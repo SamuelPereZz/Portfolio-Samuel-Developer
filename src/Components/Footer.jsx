@@ -84,6 +84,9 @@ const LinkNav = styled(NavLink)`
 `;
 
 const RepoPorta = styled.p`
+  display: flex;
+  align-items: center;
+  gap: 5px;
   ${typography.text.body1}
   transition: transform 0.3s ease;
   &:hover,
@@ -107,10 +110,11 @@ function Footer() {
             to={
               "https://www.linkedin.com/in/fernando-samuel-p%C3%A9rez-951812285/"
             }
+            target="_blank"
           >
             <SocialIcon as={FaLinkedin} hoverColor="#0A66C2" />
           </LinkNav>
-          <LinkNav to={"https://github.com/SamuelPereZz"}>
+          <LinkNav to={"https://github.com/SamuelPereZz"} target="_blank">
             <SocialIcon as={FaSquareGithub} hoverColor="#171515" />
           </LinkNav>
           <SocialIcon as={ImMail4} />
@@ -128,11 +132,14 @@ function Footer() {
           <p>Javascript</p>
         </SocialIcons>
         <SocialIcons style={{ flexDirection: "row" }}>
-          <SocialIcon as={FaCodeBranch} hoverColor="#197b12" />
           <LinkNav
             to={"https://github.com/SamuelPereZz/Portfolio-Samuel-Developer"}
+            target="_blank"
           >
-            <RepoPorta>See repository on github</RepoPorta>
+            <RepoPorta>
+              <FaCodeBranch fontSize={25} />
+              See repository on github
+            </RepoPorta>
           </LinkNav>
         </SocialIcons>
       </SocialContain>

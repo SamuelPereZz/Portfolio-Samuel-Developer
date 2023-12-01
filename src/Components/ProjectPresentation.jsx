@@ -27,6 +27,7 @@ import TweeteableImage from "../assets/Projects/Tweeteable.svg";
 import CliviaImage from "../assets/Projects/Clivia.svg";
 import { Button3 } from "./Button";
 import { GrProjects } from "react-icons/gr";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   width: 100%;
@@ -181,10 +182,30 @@ function ProjectPresentation() {
 
   const projects = useMemo(
     () => [
-      { src: CliviaImage, alt: "Clivia Project", title: "CLIbia" },
-      { src: GetHomeImage, alt: "Get Home Project", title: "Get Home" },
-      { src: EatableImage, alt: "Eatable Project", title: "Eatable" },
-      { src: TweeteableImage, alt: "Tweeteable Project", title: "Tweetable" },
+      {
+        src: CliviaImage,
+        alt: "Clivia Project",
+        title: "CLIbia",
+        link: "https://github.com/codeableorg/clivia-generator-SamuelPereZz",
+      },
+      {
+        src: GetHomeImage,
+        alt: "Get Home Project",
+        title: "Get Home",
+        link: "https://github.com/Carsaavedrapa/c11-team2-GetHome",
+      },
+      {
+        src: EatableImage,
+        alt: "Eatable Project",
+        title: "Eatable",
+        link: "https://github.com/codeableorg/react-eatable-SamuelPereZz",
+      },
+      {
+        src: TweeteableImage,
+        alt: "Tweeteable Project",
+        title: "Tweetable",
+        link: "https://github.com/codeableorg/tweetable-SamuelPereZz",
+      },
     ],
     []
   );
@@ -227,13 +248,15 @@ function ProjectPresentation() {
         >
           {projects.map((project, index) => (
             <SwiperSlide key={index}>
-              <Photo
-                index={index}
-                activeSlide={activeSlide}
-                onClick={() => handleImageClick(index)}
-              >
-                <InfoImage {...project} />
-              </Photo>
+              <NavigationLink to={project.link} target="_blank">
+                <Photo
+                  index={index}
+                  activeSlide={activeSlide}
+                  onClick={() => handleImageClick(index)}
+                >
+                  <InfoImage {...project} />
+                </Photo>
+              </NavigationLink>
             </SwiperSlide>
           ))}
         </Swiper>

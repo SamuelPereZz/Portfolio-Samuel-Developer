@@ -18,6 +18,7 @@ export const Button1 = styled.button`
   &:hover {
     background-color: #8a8fa3;
     color: #000000;
+    border: 2px solid black;
   }
   &:active {
     background-color: #313944;
@@ -44,6 +45,8 @@ export const Button2 = styled.button`
   cursor: pointer;
   &:hover {
     color: #68758b;
+    border: 2px solid black;
+
   }
 `;
 
@@ -61,6 +64,8 @@ export const Button3 = styled.button`
   border: none;
   &:hover {
     background-color: #aebdc7;
+    border: 2px solid black;
+
   }
   &:active {
     border: 1px solid #0e1425;
@@ -88,6 +93,8 @@ export const Button4 = styled.button`
   cursor: pointer;
   &:hover {
     background-color: #aebdc7;
+    border: 2px solid black;
+
   }
 `;
 

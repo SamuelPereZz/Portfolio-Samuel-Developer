@@ -8,7 +8,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { CgFileDocument } from "react-icons/cg";
 
-
 const Wrapper = styled.nav`
   margin: 0;
   ul {
@@ -131,11 +130,13 @@ function Navbar() {
         </li>
         <li>
           <NavLink
-            to={"https://drive.google.com/file/d/1w1mWyHSIuG3yAPYayBa1USb-U4_OS_4c/view?usp=sharing"}
+            to={
+              "https://drive.google.com/file/d/1w1mWyHSIuG3yAPYayBa1USb-U4_OS_4c/view?usp=sharing"
+            }
+            target="_blank"
           >
             <Button1 style={{ width: 140 }}>
-              {" "}
-              <CgFileDocument  style={{ color: "#a0d1ec" }} />
+              <CgFileDocument style={{ color: "#a0d1ec" }} />
               CV
             </Button1>
           </NavLink>

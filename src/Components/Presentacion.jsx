@@ -51,13 +51,10 @@ const SummaryMeContainer = styled.div`
   span {
     color: #385b93;
   }
-  animation: ${slideInBlurredLeft} 1s ease-in-out;
   @media (max-width: 1100px) {
     padding: 0;
   }
-  @media (max-width: 500px) {
-    animation: ${slideInBlurredLeft} 0s ease-in-out;
-  }
+
 `;
 
 const PhotoContainer = styled.div`
@@ -69,7 +66,6 @@ const PhotoContainer = styled.div`
     max-width: 200px;
     max-height: 250px;
   }
-  animation: ${slideInBlurredLeft} 1s ease-in-out;
 `;
 
 const PhotoMe = styled.img`
@@ -155,7 +151,6 @@ const Container = styled.div`
 
 const LinkNav = styled(NavLink)`
   text-decoration: none;
-  animation: ${slideInBlurredLeft} 1s ease-in-out;
 `;
 
 export default Presentacion;

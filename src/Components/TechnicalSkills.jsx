@@ -295,6 +295,7 @@ const Title = styled.p`
   }
   @media (max-width: 500px) {
     ${typography.head.head5}
+  font-weight: 400;
   }
 `;
 

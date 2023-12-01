@@ -6,8 +6,6 @@ import { FaPeopleArrows } from "react-icons/fa";
 import { CgFileDocument } from "react-icons/cg";
 import { HiArrowSmallDown } from "react-icons/hi2";
 
-
-
 const Container = styled.div`
   width: 100%;
   min-height: 50vh;
@@ -56,11 +54,12 @@ function ContactMessage() {
           </Button3>
         </NavigationLink>
         <CvText>Know my experience</CvText>
-        <HiArrowSmallDown  style={{fontSize: "55px", color: "#0e1425"}}/>
+        <HiArrowSmallDown style={{ fontSize: "55px", color: "#0e1425" }} />
         <NavigationLink
           to={
             "https://drive.google.com/file/d/1w1mWyHSIuG3yAPYayBa1USb-U4_OS_4c/view?usp=sharing"
           }
+          target="_blank"
         >
           <Button1 style={{ width: 140, height: 50 }}>
             {" "}

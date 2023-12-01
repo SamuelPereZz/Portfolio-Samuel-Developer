@@ -195,17 +195,21 @@ function ContactMePage() {
             </ContactInfo>
           </InfoContainer>
           <IconsContainer>
-            <LinkNav to={"https://www.instagram.com/samuel_perezz00/"}>
+            <LinkNav
+              to={"https://www.instagram.com/samuel_perezz00/"}
+              target="_blank"
+            >
               <SocialIcon as={FaInstagram} hoverColor="#E1306C" />
             </LinkNav>
             <LinkNav
               to={
                 "https://www.linkedin.com/in/fernando-samuel-p%C3%A9rez-951812285/"
               }
+              target="_blank"
             >
               <SocialIcon as={FaLinkedin} hoverColor="#0A66C2" />
             </LinkNav>
-            <LinkNav to={"https://github.com/SamuelPereZz"}>
+            <LinkNav to={"https://github.com/SamuelPereZz"} target="_blank">
               <SocialIcon as={FaGithub} hoverColor="#171515" />
             </LinkNav>
           </IconsContainer>
@@ -216,7 +220,7 @@ function ContactMePage() {
       </Container>
       <Button4 onClick={openModal}>
         Send me a message!
-        <AiOutlineMessage   style={{ fontSize: "22px"}} />
+        <AiOutlineMessage style={{ fontSize: "22px" }} />
       </Button4>
       <Modal isOpen={isModalOpen} onClose={closeModal} />
     </SectionAll>

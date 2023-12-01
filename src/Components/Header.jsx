@@ -2,12 +2,11 @@ import styled from "@emotion/styled";
 import Navbar from "./Navbar";
 import { colors, typography } from "../Styles";
 import { NavLink } from "react-router-dom";
-import { slideInBlurredLeft } from "./Presentacion";
 import logo from "../assets/Logo.svg";
 
 const Wrapper = styled.div`
   position: relative;
-  z-index: 2; 
+  z-index: 2;
   filter: drop-shadow(4px 6px 4px #030303);
   :before {
     content: "";
@@ -19,7 +18,6 @@ const Wrapper = styled.div`
     z-index: -1;
   }
   background-color: #364153;
-  animation: ${slideInBlurredLeft} 1s ease-in-out;
   display: flex;
   padding: 10px 0;
   justify-content: space-around;

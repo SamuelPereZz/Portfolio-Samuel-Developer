@@ -107,7 +107,7 @@ const NavigationLink = styled(NavLink)`
 const ProjectCard = ({ project }) => {
   return (
     <CardProject>
-      <NavigationLink to={project.link}>
+      <NavigationLink to={project.link} target="_blank">
         <div className="project-icon">
           Visit repository
           <FaArrowUpRightFromSquare style={{ fontSize: "30px" }} />
