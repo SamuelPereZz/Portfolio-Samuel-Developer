@@ -6,21 +6,26 @@ import Photo from "../assets/Photo3.jpg";
 const SectionTwo = styled.section`
   height: 100vh;
   background-color: #364153;
+  padding: 3rem 17.7rem;
   display: flex;
   gap: 20px;
-  padding: 3rem 17.6rem;
   align-items: center;
   justify-content: center;
+  @media (max-width: 1450px) {
+    padding: 3rem 10rem;
+  }
   @media (max-width: 1300px) {
     flex-direction: column;
     justify-content: center;
     padding: 3rem 2rem;
+    height: auto;
   }
-
+  @media (max-width: 800px) {
+    padding: 2rem 0rem;
+  }
   @media (max-width: 500px) {
     flex-direction: column;
     padding: 2rem 1rem;
-    height: auto;
   }
 `;
 
@@ -87,7 +92,7 @@ const AboutMe = styled.article`
 const AboutP = styled.p`
   ${typography.head.head6}
   @media (max-width: 1300px) {
-    ${typography.head.head5}
+    ${typography.head.head6}
     padding: 0 5rem;
   }
   @media (max-width: 500px) {
@@ -96,10 +101,6 @@ const AboutP = styled.p`
   }
   span {
     color: #8a8fa3;
-  }
-
-  @media (max-width: 1100px) {
-    ${typography.subtitle.subtitle2}
   }
 `;
 
