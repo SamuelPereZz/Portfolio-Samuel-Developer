@@ -44,6 +44,9 @@ const SkillsContainer = styled.div`
     ${typography.subtitle.subtitle2}
     grid-template-columns: repeat(2, 1fr);
   }
+  @media (max-width: 500px) {
+    gap: 15px;
+  }
   @media (max-width: 350px) {
     gap: 9px;
   }
