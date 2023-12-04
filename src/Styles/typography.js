@@ -74,6 +74,11 @@ export const typography = {
     font-size: 12px;
     line-height: 16px;
     `,
+    caption2: `
+    font-family: ${fonts.primary};
+    font-size: 10.5px;
+    line-height: 15px;
+    `,
   },
   overline: {
     overline1: `

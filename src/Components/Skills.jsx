@@ -13,6 +13,11 @@ const SectionFour = styled.div`
   justify-content: center;
   @media (max-width: 1100px) {
     height: auto;
+    padding: 3rem 5%;
+    gap: 3rem;
+  }
+  @media (max-width: 500px) {
+    gap: 2rem;
   }
 `;
 
@@ -70,6 +75,7 @@ const SkillsRaw = styled.div`
   @media (max-width: 500px) {
     ${typography.text.body2}
     grid-template-columns: repeat(1, 2fr);
+    gap: 22px;
   }
 `;
 
@@ -92,7 +98,7 @@ const TitleSkill = styled.p`
   ${typography.head.head3}
   color:#ededed;
   font-weight: 600;
-  filter: drop-shadow(1px 8px 4px  #acacacdf);
+  filter: drop-shadow(1px 8px 4px #acacacdf);
 `;
 
 function Skills() {

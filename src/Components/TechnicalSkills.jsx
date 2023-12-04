@@ -30,6 +30,9 @@ const SectionThree = styled.div`
   @media (max-width: 1100px) {
     padding: 48px 40px;
   }
+  @media (max-width: 350px) {
+    padding: 48px 1rem;
+  }
 `;
 
 const SkillsContainer = styled.div`
@@ -40,6 +43,9 @@ const SkillsContainer = styled.div`
   @media (max-width: 1100px) {
     ${typography.subtitle.subtitle2}
     grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 350px) {
+    gap: 9px;
   }
 `;
 
@@ -58,10 +64,13 @@ const CardSkill = styled.div`
   cursor: pointer;
   padding: 1rem 0;
   filter: drop-shadow(4px 4px 8px #364153a1);
-
   &.hovered {
     padding-bottom: 40px;
     height: 255px;
+    justify-content: space-between;
+    @media (max-width: 350px) {
+    height: 280px;
+  }
   }
   @media (max-width: 900px) {
     justify-content: space-around;
@@ -70,10 +79,15 @@ const CardSkill = styled.div`
     width: 150px;
     text-align: center;
   }
+  @media (max-width: 350px) {
+    width: 145px;
+    height: 280px;
+  }
 `;
 
 const ImgSkill = styled.img`
   height: 100px;
+  object-fit: cover;
   @media (max-width: 900px) {
     max-width: 100px;
     max-height: 80px;
@@ -98,7 +112,7 @@ const InfoText = styled.p`
     ${typography.text.body2}
   }
   @media (max-width: 500px) {
-    ${typography.overline.overline2}
+    ${typography.caption.caption1}
   }
 `;
 
@@ -295,7 +309,10 @@ const Title = styled.p`
   }
   @media (max-width: 500px) {
     ${typography.head.head5}
-  font-weight: 400;
+    font-weight: 400;
+  }
+  @media (max-width: 350px) {
+    ${typography.head.head6}
   }
 `;
 

@@ -182,15 +182,15 @@ function ContactMePage() {
           <Title>Contact me</Title>
           <InfoContainer>
             <ContactInfo>
-              <Icons as={MdLocationOn} hoverColor="#E1306C" />
+              <Icons as={MdLocationOn} hovercolor="#E1306C" />
               <p>Mexico City</p>
             </ContactInfo>
             <ContactInfo>
-              <Icons as={MdMarkEmailRead} hoverColor="#3062e1" />
+              <Icons as={MdMarkEmailRead} hovercolor="#3062e1" />
               <p>fernando.samuelperez01@gmail.com</p>
             </ContactInfo>
             <ContactInfo>
-              <Icons as={MdPermPhoneMsg} hoverColor="#14b437" />{" "}
+              <Icons as={MdPermPhoneMsg} hovercolor="#14b437" />{" "}
               <p>MX (+52) 5549291970</p>
             </ContactInfo>
           </InfoContainer>
@@ -199,7 +199,7 @@ function ContactMePage() {
               to={"https://www.instagram.com/samuel_perezz00/"}
               target="_blank"
             >
-              <SocialIcon as={FaInstagram} hoverColor="#E1306C" />
+              <SocialIcon as={FaInstagram} hovercolor="#E1306C" />
             </LinkNav>
             <LinkNav
               to={
@@ -207,10 +207,10 @@ function ContactMePage() {
               }
               target="_blank"
             >
-              <SocialIcon as={FaLinkedin} hoverColor="#0A66C2" />
+              <SocialIcon as={FaLinkedin} hovercolor="#0A66C2" />
             </LinkNav>
             <LinkNav to={"https://github.com/SamuelPereZz"} target="_blank">
-              <SocialIcon as={FaGithub} hoverColor="#171515" />
+              <SocialIcon as={FaGithub} hovercolor="#171515" />
             </LinkNav>
           </IconsContainer>
         </CardContact>

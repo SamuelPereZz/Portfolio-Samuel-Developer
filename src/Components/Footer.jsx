@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaSquareGithub } from "react-icons/fa6";
 import { ImMail4 } from "react-icons/im";
 import { FaReact } from "react-icons/fa";
@@ -117,7 +117,12 @@ function Footer() {
           <LinkNav to={"https://github.com/SamuelPereZz"} target="_blank">
             <SocialIcon as={FaSquareGithub} hovercolor="#171515" />
           </LinkNav>
-          <SocialIcon as={ImMail4} />
+          <LinkNav
+            to={"https://www.instagram.com/samuel_perezz00/"}
+            target="_blank"
+          >
+            <SocialIcon as={FaInstagram} hovercolor="#E1306C" />
+          </LinkNav>
         </SocialIcons>
         <div>
           <p>fernando.samuelperez01@gmail.com</p>
