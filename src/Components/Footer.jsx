@@ -108,7 +108,7 @@ function Footer() {
         <SocialIcons style={{ flexDirection: "row" }}>
           <LinkNav
             to={
-              "https://www.linkedin.com/in/fernando-samuel-p%C3%A9rez-951812285/"
+              "https://www.linkedin.com/in/samperezr1/"
             }
             target="_blank"
           >
