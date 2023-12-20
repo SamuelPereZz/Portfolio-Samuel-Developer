@@ -1,4 +1,5 @@
 # Mi Portafolio
+  <img src="https://i.imgur.com/ODT3OCS.png" alt="Home Eatable Image">
 
 <h3>Hola! 👋 Bienvenido a mi repositorio de portafolio. Aquí encontrarás información sobre mí y algunos de los proyectos en los que he trabajado.</h3>
 
