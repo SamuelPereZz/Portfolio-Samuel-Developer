@@ -27,7 +27,6 @@ import TweeteableImage from "../assets/Projects/Tweeteable.svg";
 import CliviaImage from "../assets/Projects/Clivia.svg";
 import { Button3 } from "./Button";
 import { GrProjects } from "react-icons/gr";
-import PropTypes from "prop-types";
 
 const Container = styled.div`
   width: 100%;
@@ -186,25 +185,25 @@ function ProjectPresentation() {
         src: CliviaImage,
         alt: "Clivia Project",
         title: "CLIbia",
-        link: "https://github.com/codeableorg/clivia-generator-SamuelPereZz",
+        link: "https://github.com/SamuelPereZz/clivia-generator",
       },
       {
         src: GetHomeImage,
         alt: "Get Home Project",
         title: "Get Home",
-        link: "https://github.com/Carsaavedrapa/c11-team2-GetHome",
+        link: "https://github.com/SamuelPereZz/c11-team2-GetHome",
       },
       {
         src: EatableImage,
         alt: "Eatable Project",
         title: "Eatable",
-        link: "https://github.com/codeableorg/react-eatable-SamuelPereZz",
+        link: "https://github.com/SamuelPereZz/eatable",
       },
       {
         src: TweeteableImage,
         alt: "Tweeteable Project",
         title: "Tweetable",
-        link: "https://github.com/codeableorg/tweetable-SamuelPereZz",
+        link: "https://github.com/SamuelPereZz/tweetable",
       },
     ],
     []

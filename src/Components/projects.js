@@ -20,7 +20,7 @@ export const projects = [
       { Icon: DiRuby, title: "Project made with Ruby", color: "#b0215d" },
       { Icon: FaGithub, title: "Github" },
     ],
-    link: "https://github.com/codeableorg/clivia-generator-SamuelPereZz",
+    link: "https://github.com/SamuelPereZz/clivia-generator",
   },
   {
     id: 2,
@@ -47,7 +47,7 @@ export const projects = [
       },
       { Icon: FaGithub, title: "Github" },
     ],
-    link: "https://github.com/codeableorg/tweetable-SamuelPereZz",
+    link: "https://github.com/SamuelPereZz/tweetable",
   },
   {
     id: 3,
@@ -69,7 +69,7 @@ export const projects = [
       { Icon: FaReact, title: "Project made in React", color: "#61DAFB" },
       { Icon: FaGithub, title: "Github" },
     ],
-    link: "https://github.com/codeableorg/react-eatable-SamuelPereZz",
+    link: "https://github.com/SamuelPereZz/eatable",
   },
   {
     id: 4,
@@ -107,6 +107,6 @@ export const projects = [
         color: "#33bb3e",
       },
     ],
-    link: "https://github.com/Carsaavedrapa/c11-team2-GetHome",
+    link: "https://github.com/SamuelPereZz/c11-team2-GetHome",
   },
 ];
