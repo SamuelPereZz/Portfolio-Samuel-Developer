@@ -111,7 +111,7 @@ function About() {
   return (
     <SectionTwo>
       <PhotoDiv>
-        <PhotoMe src={Photo} alt="Logo" />
+        <PhotoMe src={Photo} alt="Photo me" />
       </PhotoDiv>
       <AboutMe>
         <h2>About Me</h2>

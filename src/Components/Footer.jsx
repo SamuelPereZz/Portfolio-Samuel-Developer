@@ -101,7 +101,7 @@ function Footer() {
     <Container>
       <SocialContain>
         <Logo src={logo} alt="Logo" />
-        <p>© 2023 - Samuel Pérez portfolio</p>
+        <p>© 2024 - Samuel Pérez portfolio</p>
       </SocialContain>
       <SocialContain>
         <p>To see more of my work, visit my socials:</p>
