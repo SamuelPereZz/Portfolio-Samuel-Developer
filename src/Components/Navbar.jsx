@@ -131,7 +131,7 @@ function Navbar() {
         <li>
           <NavLink
             to={
-              "https://drive.google.com/file/d/1w1mWyHSIuG3yAPYayBa1USb-U4_OS_4c/view?usp=sharing"
+              "https://drive.google.com/file/d/1OkNrcYvtWaXV2M8HiBEbyCyBmwdlSw2p/view?usp=sharing"
             }
             target="_blank"
           >
