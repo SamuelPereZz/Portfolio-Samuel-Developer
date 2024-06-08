@@ -57,7 +57,7 @@ function ContactMessage() {
         <HiArrowSmallDown style={{ fontSize: "55px", color: "#0e1425" }} />
         <NavigationLink
           to={
-            "https://drive.google.com/file/d/1OkNrcYvtWaXV2M8HiBEbyCyBmwdlSw2p/view?usp=sharing"
+            "https://docs.google.com/document/d/14j_10ntZ3ezFy6-7GAf01vdwtL_SX7YX/edit?usp=sharing&ouid=111299936214728437038&rtpof=true&sd=true"
           }
           target="_blank"
         >

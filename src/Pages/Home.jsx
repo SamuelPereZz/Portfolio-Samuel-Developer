@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Presentacion from "../Components/Presentacion";
+import Presentacion from "../Components/Presentation";
 import PresentacionProject from "../Components/ProjectPresentation";
 import ContactMessage from "../Components/ContactMessage";
 

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { typography } from "../Styles";
-import { slideInBlurredLeft } from "./Presentacion";
+import { slideInBlurredLeft } from "./Presentation";
 import Photo from "../assets/Photo3.jpg";
 
 const SectionTwo = styled.section`

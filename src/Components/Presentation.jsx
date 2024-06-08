@@ -50,6 +50,7 @@ const SummaryMeContainer = styled.div`
   align-items: center;
   span {
     color: #385b93;
+    font-weight: 500;
   }
   @media (max-width: 1100px) {
     padding: 0;

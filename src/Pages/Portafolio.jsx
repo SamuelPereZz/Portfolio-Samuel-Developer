@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { typography } from "../Styles";
 import ProjectCard from "../Components/ProjectCard";
-import { projects } from "../Components/projects";
+import { projects } from "../projects";
 
 const Container = styled.div`
   padding: 64px;
