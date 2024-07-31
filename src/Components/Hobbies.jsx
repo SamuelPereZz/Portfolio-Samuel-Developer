@@ -1,8 +1,8 @@
-import styled from "@emotion/styled";
-import { typography } from "../Styles";
-import Travel from "../assets/Hobbies/volcan.jpg";
-import bolsa from "../assets/Hobbies/bolsa.jpg";
-import read from "../assets/Hobbies/read.jpg";
+import styled from '@emotion/styled';
+import { typography } from '../Styles';
+import Travel from '../assets/Hobbies/volcan.jpg';
+import bolsa from '../assets/Hobbies/bolsa.jpg';
+import hackthon from '../assets/Hobbies/HackMex.jpg';
 
 const SectionFive = styled.div`
   height: 100%;
@@ -32,7 +32,6 @@ const HobbiesContainer = styled.div`
 
 const HobbiCard = styled.div`
   background-color: #7a829b;
-  gap: 20px;
   width: 319px;
   height: 220px;
   display: flex;
@@ -40,7 +39,7 @@ const HobbiCard = styled.div`
   align-items: center;
   border-radius: 8px;
   text-align: center;
-  justify-content: center;
+  justify-content: space-around;
   h2,
   h1 {
     ${typography.head.head5}
@@ -80,18 +79,18 @@ const ImgSkill = styled.img`
 function Hobbies() {
   return (
     <SectionFive>
-      <h1 style={{ textTransform: "uppercase", fontSize: "italic" }}>
+      <h1 style={{ textTransform: 'uppercase', fontSize: 'italic' }}>
         Hobbies
       </h1>
       <HobbiesContainer>
         <HobbiCard>
-          <ImgSkill src={Travel} alt="Travel" />
+          <ImgSkill src={Travel} alt='Travel' />
         </HobbiCard>
         <HobbiCard>
-          <ImgSkill src={read} alt="Travel" />
+          <ImgSkill src={hackthon} alt='Travel' />
         </HobbiCard>
         <HobbiCard>
-          <ImgSkill src={bolsa} alt="Travel" />
+          <ImgSkill src={bolsa} alt='Travel' />
         </HobbiCard>
         <HobbiCard>
           <h2>Exploring New Places</h2>
@@ -102,11 +101,12 @@ function Hobbies() {
           </p>
         </HobbiCard>
         <HobbiCard>
-          <h2>Literary Exploration</h2>
+          <h2>Attending Technology Events</h2>
           <p>
-            I find joy in delving into captivating narratives, expanding my
-            knowledge through literature, and exploring the boundless realms of
-            imagination through books.
+            I enjoy participating in technology events such as talks,
+            conferences, hackathons, and meetups. These gatherings provide me
+            with valuable opportunities to connect with fellow tech enthusiasts
+            and expand my horizons within the industry.
           </p>
         </HobbiCard>
 

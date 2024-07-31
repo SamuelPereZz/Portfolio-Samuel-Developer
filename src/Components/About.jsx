@@ -3,12 +3,12 @@ import { typography } from "../Styles";
 import { slideInBlurredLeft } from "./Presentation";
 import Photo from "../assets/Photo3.jpg";
 
-const SectionTwo = styled.section`
+const Container = styled.section`
   height: 100vh;
   background-color: #364153;
   padding: 3rem 17.7rem;
   display: flex;
-  gap: 20px;
+  gap: 60px;
   align-items: center;
   justify-content: center;
   @media (max-width: 1450px) {
@@ -109,7 +109,7 @@ const AboutP = styled.p`
 
 function About() {
   return (
-    <SectionTwo>
+    <Container>
       <PhotoDiv>
         <PhotoMe src={Photo} alt="Photo me" />
       </PhotoDiv>
@@ -135,7 +135,7 @@ function About() {
           possibilities of creating something extraordinary together.
         </AboutP>
       </AboutMe>
-    </SectionTwo>
+    </Container>
   );
 }
 

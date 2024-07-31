@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { typography } from "../Styles";
-import photo from "../assets/Photo.jpg";
+import photo from "../assets/HackNotion.jpg";
 import { keyframes } from "@emotion/react";
 import { NavLink } from "react-router-dom";
 import { Button1 } from "./Button";
